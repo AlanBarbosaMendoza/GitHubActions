@@ -1,5 +1,7 @@
 Hello World sample shows how to deploy [SpringBoot](http://projects.spring.io/spring-boot/) RESTful web service application with [Docker](https://www.docker.com/)
 
+![Status](https://github.com/rdomenzain/hello-world-spring-boot/actions/workflows/main.yml/badge.svg)
+
 #### Prerequisite 
 
 Installed:   
