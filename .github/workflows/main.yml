@@ -81,7 +81,8 @@ jobs:
       uses: redhat-actions/buildah-build@v2
       with:
         image: hello-world-spring-boot
-        tags: v1 ${{ github.sha }}
+        tags: "latest ${{ github.sha }}"
+        image-with-tag: "hello-world-spring-boot:latest"
         containerfiles: |
           ./Dockerfile
 
@@ -106,8 +107,8 @@ jobs:
         namespace: ${{ env.OPENSHIFT_NAMESPACE }}
         app_name: hello-world-spring-boot
         port: 8080
-        registry_hostname: registry.gitlab.com
-        image: ${{ env.IMAGE_REGISTRY }}/hello-world-spring-boot:v1
+        registry_hostname: ${{ env.IMAGE_REGISTRY }}
+        image: ${{ env.IMAGE_REGISTRY }}/hello-world-spring-boot:latest
         registry_username: ${{ env.REGISTRY_USER }}
         registry_password: ${{ env.REGISTRY_PASSWORD }}
 
