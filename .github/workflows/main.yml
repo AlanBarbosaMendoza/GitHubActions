@@ -60,7 +60,7 @@ jobs:
       
       - name: Kiuwan Baseline Analysis
         run: |
-          ${HOME}/KiuwanLocalAnalyzer/bin/agent.sh -n Sistemas-Aplicaciones_MONEX -s ${HOME}/repo -l "hello-world-spring-boot:${{ github.sha }}" --user ${{ secrets.KIUWAN_USER }} --pass ${{ secrets.KIUWAN_PASS }}
+          ${HOME}/KiuwanLocalAnalyzer/bin/agent.sh -n Sistemas-Aplicaciones_MONEX -s ${{ github.repository }} -l "hello-world-spring-boot:${{ github.sha }}" --user ${{ secrets.KIUWAN_USER }} --pass ${{ secrets.KIUWAN_PASS }}
 
   openshift:
     runs-on: ubuntu-latest
