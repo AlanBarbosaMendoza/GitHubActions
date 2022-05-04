@@ -79,3 +79,12 @@ jobs:
         tags: v1 ${{ github.sha }}
         containerfiles: |
           ./Dockerfile
+
+    - name: Create and expose app
+      uses: redhat-actions/oc-new-app@v1
+      with:
+        app_name: hello-world-spring-boot
+        port: 8080
+        image: quay.io/redhat-github-actions/ello-world-spring-boot:v1
+        namespace: estado-cuenta-dinamico-dev
+  
