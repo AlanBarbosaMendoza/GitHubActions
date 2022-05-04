@@ -49,27 +49,26 @@ jobs:
           path: target/surefire-reports/*.xml
           reporter: java-junit
           fail-on-error: true
-          
-  kiuwan-qa:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: joschi/setup-jdk@v2
-        with:
-          java-version: '11' # The OpenJDK version to make available on the path
-          architecture: 'x64' # defaults to 'x64'
 
-      - name: Kiuwan Baseline Analysis
-        uses: lsacera/KiuwanBaselineAction@v1.0
-        with:
+      - name: Download and Install Kiuwan Local Analyzer
+        run: |
+          java -version
+          echo ${HOME}
+          wget https://www.kiuwan.com/pub/analyzer/KiuwanLocalAnalyzer.zip -P ${HOME}
+          unzip ${HOME}/KiuwanLocalAnalyzer.zip -d ${HOME}
+          chmod +x ${HOME}/KiuwanLocalAnalyzer/bin/*.sh
+
+      # - name: Kiuwan Baseline Analysis
+      #  uses: lsacera/KiuwanBaselineAction@v1.0
+      #  with:
           # Name of Kiuwan project
-          project: Sistemas-Aplicaciones_MONEX
+      #    project: Sistemas-Aplicaciones_MONEX
           # Label for the analysis
-          label: "hello-world-spring-boot:${{ github.sha }}"
+      #    label: "hello-world-spring-boot:${{ github.sha }}"
           # Username for kiuwan platform
-          userid: ${{ secrets.KIUWAN_USER }}
+      #    userid: ${{ secrets.KIUWAN_USER }}
           # Password for kiuwan platform
-          password: ${{ secrets.KIUWAN_PASS }}
+      #    password: ${{ secrets.KIUWAN_PASS }}
 
   openshift:
     runs-on: ubuntu-latest
