@@ -4,9 +4,9 @@ name: Github Action - Spring boot
 # events but only for the master branch
 on:
   push:
-    branches: [develop]
+    branches: [developer]
   pull_request:
-    branches: [main, develop]
+    branches: [main, developer]
 
 jobs:
   build-test:
