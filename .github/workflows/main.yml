@@ -107,7 +107,7 @@ jobs:
         app_name: hello-world-spring-boot
         port: 8080
         registry_hostname: ${{ env.IMAGE_REGISTRY }}
-        image: ${{ steps.build-image.outputs.image }}
+        image: ${{ env.IMAGE_REGISTRY }}/hello-world-spring-boot:latest
         registry_username: ${{ env.REGISTRY_USER }}
         registry_password: ${{ env.REGISTRY_PASSWORD }}
 
