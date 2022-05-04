@@ -82,7 +82,6 @@ jobs:
       with:
         image: hello-world-spring-boot
         tags: "latest ${{ github.sha }}"
-        image-with-tag: "hello-world-spring-boot:latest"
         containerfiles: |
           ./Dockerfile
 
@@ -108,6 +107,6 @@ jobs:
         app_name: hello-world-spring-boot
         port: 8080
         registry_hostname: ${{ env.IMAGE_REGISTRY }}
-        image: ${{ env.IMAGE_REGISTRY }}/hello-world-spring-boot:${{ github.sha }}
+        image: ${{ env.IMAGE_REGISTRY }}/hello-world-spring-boot:latest
         registry_username: ${{ env.REGISTRY_USER }}
         registry_password: ${{ env.REGISTRY_PASSWORD }}
