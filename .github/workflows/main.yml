@@ -72,3 +72,10 @@ jobs:
         #  Optional - this sets your Kubernetes context's current namespace after logging in.
         namespace: ${{ env.OPENSHIFT_NAMESPACE }}
 
+    - name: Buildah Action
+      uses: redhat-actions/buildah-build@v2
+      with:
+        image: hello-world-spring-boot
+        tags: v1 ${{ github.sha }}
+        containerfiles: |
+          ./Dockerfile
