@@ -55,20 +55,20 @@ jobs:
       with:
         oc_version: '4.6'
 
-    # - name: Authenticate and set context
-    #   uses: redhat-actions/oc-login@v1
-    #  env:
+    - name: Authenticate and set context
+      uses: redhat-actions/oc-login@v1
+      env:
         # These can be stored in secrets, if desired.
-    #    OPENSHIFT_USER: test
-    #    OPENSHIFT_NAMESPACE: edc-dinamico
-    #  with:
+        OPENSHIFT_NAMESPACE: estado-cuenta-dinamico-dev
+      with:
         # URL to your OpenShift cluster.
         # Refer to Step 2.
-    #    openshift_server_url: ${{ secrets.OPENSHIFT_SERVER }}
+        openshift_server_url: ${{ secrets.OPENSHIFT_SERVER }}
         # Authentication Token. Can use username and password instead.
         # Refer to Step 3.
-    #    openshift_token: ${{ secrets.OPENSHIFT_TOKEN }}
+        openshift_token: ${{ secrets.OPENSHIFT_TOKEN }}
         # Disables SSL cert checking. Use this if you don't have the certificate authority data.
-    #    insecure_skip_tls_verify: true
+        insecure_skip_tls_verify: true
         #  Optional - this sets your Kubernetes context's current namespace after logging in.
-    #    namespace: ${{ env.OPENSHIFT_NAMESPACE }}
+        namespace: ${{ env.OPENSHIFT_NAMESPACE }}
+
