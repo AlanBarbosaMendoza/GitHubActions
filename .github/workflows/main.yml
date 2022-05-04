@@ -50,6 +50,18 @@ jobs:
           reporter: java-junit
           fail-on-error: true
 
+      - name: Kiuwan Baseline Analysis
+        uses: lsacera/KiuwanBaselineAction@v1.0
+        with:
+          # Name of Kiuwan project
+          project: Sistemas-Aplicaciones_MONEX
+          # Label for the analysis
+          label: "hello-world-spring-boot:${{ github.sha }}"
+          # Username for kiuwan platform
+          userid: ${{ secrets.KIUWAN_USER }}
+          # Password for kiuwan platform
+          password: ${{ secrets.KIUWAN_PASS }}
+
   openshift:
     runs-on: ubuntu-latest
     steps:
