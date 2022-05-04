@@ -106,7 +106,7 @@ jobs:
         namespace: ${{ env.OPENSHIFT_NAMESPACE }}
         app_name: hello-world-spring-boot
         port: 8080
-        registry_hostname: ${{ env.IMAGE_REGISTRY }}
+        registry_hostname: registry.gitlab.com
         image: ${{ env.IMAGE_REGISTRY }}/hello-world-spring-boot:v1
         registry_username: ${{ env.REGISTRY_USER }}
         registry_password: ${{ env.REGISTRY_PASSWORD }}
