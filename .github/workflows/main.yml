@@ -23,10 +23,10 @@ jobs:
       - name: Checkout the repository
         uses: actions/checkout@v2
 
-      - name: Set up JDK 14
+      - name: Set up JDK 8
         uses: actions/setup-java@v1
         with:
-          java-version: 14
+          java-version: 8
 
       - name: Cache Maven packages
         uses: actions/cache@v2
@@ -53,6 +53,7 @@ jobs:
       - name: Kiuwan Baseline Analysis
         uses: lsacera/KiuwanBaselineAction@v1.0
         with:
+          java-version: 8
           # Name of Kiuwan project
           project: Sistemas-Aplicaciones_MONEX
           # Label for the analysis
