@@ -52,15 +52,13 @@ jobs:
 
       - name: Download and Install Kiuwan Local Analyzer
         run: |
-          java -version
-          echo ${HOME}
           wget https://www.kiuwan.com/pub/analyzer/KiuwanLocalAnalyzer.zip -P ${HOME}
           unzip ${HOME}/KiuwanLocalAnalyzer.zip -d ${HOME}
           chmod +x ${HOME}/KiuwanLocalAnalyzer/bin/*.sh
       
       - name: Kiuwan Baseline Analysis
         run: |
-          ${HOME}/KiuwanLocalAnalyzer/bin/agent.sh -n Sistemas-Aplicaciones_MONEX -s ${{ github.repository }} -l "hello-world-spring-boot:${{ github.sha }}" --user ${{ secrets.KIUWAN_USER }} --pass ${{ secrets.KIUWAN_PASS }}
+          ${HOME}/KiuwanLocalAnalyzer/bin/agent.sh -n Sistemas-Aplicaciones_MONEX -s . -l "hello-world-spring-boot:${{ github.sha }}" --user ${{ secrets.KIUWAN_USER }} --pass ${{ secrets.KIUWAN_PASS }}
 
   openshift:
     runs-on: ubuntu-latest
