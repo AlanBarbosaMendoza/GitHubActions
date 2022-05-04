@@ -92,7 +92,7 @@ jobs:
         password: ${{ env.REGISTRY_PASSWORD }}
         registry: ${{ env.IMAGE_REGISTRY }}
 
-    - name: Push To OpenShift
+    - name: Push To Github Package
       id: push-to-quay
       uses: redhat-actions/push-to-registry@v2
       with:
@@ -105,6 +105,6 @@ jobs:
       with:
         app_name: hello-world-spring-boot
         port: 8080
-        image: ${{ env.IMAGE_REGISTRY }}
+        image: ${{ env.IMAGE_REGISTRY }}/hello-world-spring-boot:v1
         namespace: ${{ env.OPENSHIFT_NAMESPACE }}
   
