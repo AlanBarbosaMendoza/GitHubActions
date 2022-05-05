@@ -46,8 +46,7 @@
                         </goals>
                     </execution>
                     <execution>
-                        <id>generate-code-coverage-report</id>
-                        <phase>test</phase>
+                        <id>report</id>
                         <goals>
                             <goal>report</goal>
                         </goals>
