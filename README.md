@@ -2,6 +2,10 @@ Hello World sample shows how to deploy [SpringBoot](http://projects.spring.io/sp
 
 ![Status](https://github.com/rdomenzain/hello-world-spring-boot/actions/workflows/main.yml/badge.svg)
 
+![Coverage](.github/badges/jacoco.svg)
+
+![Branches](.github/badges/branches.svg)
+
 #### Prerequisite 
 
 Installed:   
