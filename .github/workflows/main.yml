@@ -79,14 +79,14 @@ jobs:
           path: target/site/jacoco/
 
       - name: Download and Install Kiuwan Local Analyzer
-      #   if: github.event.pull_request.merged == true
+        if: github.event.pull_request.merged == true
         run: |
           wget https://www.kiuwan.com/pub/analyzer/KiuwanLocalAnalyzer.zip -P ${HOME}
           unzip ${HOME}/KiuwanLocalAnalyzer.zip -d ${HOME}
           chmod +x ${HOME}/KiuwanLocalAnalyzer/bin/*.sh
       
       - name: Kiuwan Baseline Analysis
-      #  if: github.event.pull_request.merged == true
+        if: github.event.pull_request.merged == true
         run: |
           ${HOME}/KiuwanLocalAnalyzer/bin/agent.sh -n Sistemas-Aplicaciones_MONEX -s ./src -l "hello-world-spring-boot:${{ github.sha }}" --user $KIUWAN_USER --pass $KIUWAN_PASS -as baseline
 
