@@ -14,6 +14,8 @@ env:
   REGISTRY_USER: ${{ github.actor }}
   REGISTRY_PASSWORD: ${{ github.token }}
   IMAGE_REGISTRY: ghcr.io/${{ github.repository_owner }}
+  KIUWAN_USER: ${{ secrets.KIUWAN_USER }}
+  KIUWAN_PASS: ${{ secrets.KIUWAN_PASS }}
 
 jobs:
   build-test:
@@ -58,9 +60,9 @@ jobs:
       
       - name: Kiuwan Baseline Analysis
         run: |
-          echo ${{secrets.KIUWAN_USER}}
-          echo ${{secrets.KIUWAN_PASS}}
-        #   ${HOME}/KiuwanLocalAnalyzer/bin/agent.sh -n Sistemas-Aplicaciones_MONEX -s ./src -l "hello-world-spring-boot:${{ github.sha }}" -wr --user ${{secrets.KIUWAN_USER}} --pass ${{secrets.KIUWAN_PASS}} -as baseline
+          echo $KIUWAN_USER
+          echo $KIUWAN_PASS
+          ${HOME}/KiuwanLocalAnalyzer/bin/agent.sh -n Sistemas-Aplicaciones_MONEX -s ./src -l "hello-world-spring-boot:${{ github.sha }}" -wr --user $KIUWAN_USER --pass $KIUWAN_PASS -as baseline
 
   openshift:
     runs-on: ubuntu-latest
