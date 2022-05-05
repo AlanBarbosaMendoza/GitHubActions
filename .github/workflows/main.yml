@@ -41,7 +41,7 @@ jobs:
         run: mvn -B package
 
       - name: Run tests with Maven
-        run: mvn test
+        run: mvn clean test verify
 
       - name: Report
         uses: dorny/test-reporter@v1
